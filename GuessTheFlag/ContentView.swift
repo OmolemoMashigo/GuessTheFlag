@@ -9,18 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            Button("button 1"){}
-                .buttonStyle(.bordered)
-            
-            Button("button 2", role: .destructive){}
-                .buttonStyle(.bordered)
-            
-            Button("button 3"){}
-                .buttonStyle(.borderedProminent)
-            
-            Button("button 4", role: .destructive){}
-                .buttonStyle(.borderedProminent)
+        Button{
+            print("button was tapped")
+        } label: {
+            Label("edit", systemImage: "pencil")
+                .padding()
+                .foregroundColor(.blue)
+                .background(.white)
         }
     }
     
