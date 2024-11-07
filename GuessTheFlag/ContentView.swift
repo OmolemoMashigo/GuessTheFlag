@@ -20,30 +20,46 @@ struct ContentView: View {
         ZStack{
             LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            VStack(spacing: 30){
-                VStack{
-                    Text("tap the flag of")
-                        .foregroundStyle(.white)
-                        .font(.subheadline.weight(.heavy))
-                    
-                    
-                    Text(countries[correctAnswer])
-                        .foregroundStyle(.white)
-                        .font(.largeTitle.weight(.semibold))
-                }
+            
+            
+            VStack{
+                Spacer()
+                Text("Guess the flag")
+                    .foregroundStyle(.white)
+                    .font(.largeTitle.bold())
                 
-                ForEach(0..<3){ number in
-                    Button{
-                        // flag was tapped
-                        flagTapped(number)
-                    } label: {
-                        Image(countries[number])
-                            .clipShape(.capsule)
-                            .shadow(radius: 5)
+                VStack(spacing: 15){
+                    VStack{
+                        Text("tap the flag of")
+                            .foregroundStyle(.white)
+                            .font(.subheadline.weight(.heavy))
+                        
+                        
+                        Text(countries[correctAnswer])
+                            .foregroundStyle(.white)
+                            .font(.largeTitle.weight(.semibold))
                     }
                     
+                    ForEach(0..<3){ number in
+                        Button{
+                            // flag was tapped
+                            flagTapped(number)
+                        } label: {
+                            Image(countries[number])
+                                .clipShape(.capsule)
+                                .shadow(radius: 5)
+                        }
+                        
+                    }
                 }
+                Spacer()
+                Spacer()
+                Text("Score: ")
+                    .foregroundStyle(.white)
+                    .font(.title.bold())
+                Spacer()
             }
+            .padding()
         }
         .alert(scoreTitle, isPresented: $showingScore){
             Button("Continue", action: askQuestion)
