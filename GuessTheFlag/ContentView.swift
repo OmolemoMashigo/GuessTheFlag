@@ -48,12 +48,9 @@ struct ContentView: View {
                     
                     ForEach(0..<3){ number in
                         Button{
-                            // flag was tapped
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                            FlagImage(image: countries[number])
                         }
                         
                     }
@@ -97,7 +94,6 @@ struct ContentView: View {
     func flagTapped(_ number: Int){
         
         questionCount += 1
-        print(questionCount)
         
         if number == correctAnswer{
             scoreTitle = "Correct"
@@ -123,6 +119,24 @@ struct ContentView: View {
         questionCount = 0
     }
     
+}
+
+struct FlagImage: View{
+   
+    var image: String
+    
+    var body: some View{
+        Image(image)
+        .clipShape(.capsule)
+        .shadow(radius: 5)
+    }
+   
+}
+
+extension View{
+//    func renderFlag(country: String) -> some View{
+//        modifier(FlagImage(image: country))
+//    }
 }
 
 #Preview {
