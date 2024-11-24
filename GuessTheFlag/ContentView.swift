@@ -133,12 +133,6 @@ struct FlagImage: View{
    
 }
 
-extension View{
-//    func renderFlag(country: String) -> some View{
-//        modifier(FlagImage(image: country))
-//    }
-}
-
 #Preview {
     ContentView()
 }
