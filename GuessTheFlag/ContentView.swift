@@ -21,6 +21,8 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     
+    @State private var animationAmount = 0.0
+    @State private var tappedFlagIndex: Int? = nil // Track which flag is tapped
     
     var body: some View {
         ZStack{
@@ -49,8 +51,13 @@ struct ContentView: View {
                     ForEach(0..<3){ number in
                         Button{
                             flagTapped(number)
+                            
                         } label: {
                             FlagImage(image: countries[number])
+                                .rotation3DEffect(
+                                    .degrees((tappedFlagIndex == number ? animationAmount : 0)),axis: (x: 0.0, y: 1.0, z: 0.0)
+                                )
+                
                         }
                         
                     }
@@ -92,7 +99,7 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int){
-        
+        tappedFlagIndex = number // Set the tapped flag index
         questionCount += 1
         
         if number == correctAnswer{
@@ -102,7 +109,15 @@ struct ContentView: View {
         else {
             scoreTitle = "Incorrect"
         }
-        showingScore = true
+        
+        withAnimation(.spring(duration: 1, bounce: 0.3)){
+            animationAmount += 360
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            showingScore = true
+        }
+        
     }
     
     func askQuestion(){
@@ -113,6 +128,8 @@ struct ContentView: View {
             gameOver = true
             resetGame()
         }
+        tappedFlagIndex = nil
+        animationAmount = 0
     }
     
     func resetGame(){
@@ -132,6 +149,8 @@ struct FlagImage: View{
     }
    
 }
+
+
 
 #Preview {
     ContentView()
