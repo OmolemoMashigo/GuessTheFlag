@@ -23,6 +23,7 @@ struct ContentView: View {
     
     @State private var animationAmount = 0.0
     @State private var tappedFlagIndex: Int? = nil // Track which flag is tapped
+    @State private var fadeOutFlags = false // Control fade-out effect
     
     var body: some View {
         ZStack{
@@ -57,8 +58,10 @@ struct ContentView: View {
                                 .rotation3DEffect(
                                     .degrees((tappedFlagIndex == number ? animationAmount : 0)),axis: (x: 0.0, y: 1.0, z: 0.0)
                                 )
+                                .opacity((fadeOutFlags && tappedFlagIndex != 0 ? 0.25 : 1))
                 
                         }
+                        .disabled(fadeOutFlags) // Disable buttons during fade-out
                         
                     }
                 }
@@ -100,6 +103,8 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int){
         tappedFlagIndex = number // Set the tapped flag index
+        fadeOutFlags = true // Activate fade-out effect
+        
         questionCount += 1
         
         if number == correctAnswer{
@@ -130,6 +135,7 @@ struct ContentView: View {
         }
         tappedFlagIndex = nil
         animationAmount = 0
+        fadeOutFlags = false
     }
     
     func resetGame(){
