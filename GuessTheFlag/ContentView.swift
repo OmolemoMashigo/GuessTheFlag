@@ -81,7 +81,7 @@ struct ContentView: View {
                 Text("your score is \(userScore)")
             }
             else {
-                Text("Wrong! That’s the flag of \(countries[correctAnswer])")
+                Text("Wrong! That’s the flag of \(countries[tappedFlagIndex ?? 0])")
             }
         }
         
