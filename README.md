@@ -3,7 +3,6 @@
 This is a guessing game that helps users learn some of the many flags of the world. This app explores using stacks to arrange views, Colors, frames, gradients, showing alerts and designing beautiful UI in SwiftUI.
 
 # Finished App
-<img width="480" alt="Screenshot 2025-03-07 at 22 54 54" src="https://github.com/user-attachments/assets/8553b1c8-240e-49aa-8b35-1e41707124ff" />
-
-<img width="456" alt="Screenshot 2025-06-08 at 19 19 23" src="https://github.com/user-attachments/assets/260f3eb3-f706-4d0c-a8f5-fcbb14b07aef" />
-<img width="471" alt="Screenshot 2025-06-08 at 19 20 33" src="https://github.com/user-attachments/assets/23a59a9a-93ab-487a-8730-9229075429c7" />
+<img width="398" alt="Screenshot 2025-06-08 at 19 24 08" src="https://github.com/user-attachments/assets/209141f2-1376-49b7-9290-90efc3b87ac3" />
+<img width="392" alt="Screenshot 2025-06-08 at 19 24 27" src="https://github.com/user-attachments/assets/a99b7a1f-47e9-478b-bbbd-23ee23c9a675" />
+<img width="392" alt="Screenshot 2025-06-08 at 19 25 33" src="https://github.com/user-attachments/assets/3bb409ce-2f58-4be3-ac79-efe1f2d6e344" />
