@@ -1,4 +1,4 @@
-<img width="318" alt="Screenshot 2025-06-08 at 19 29 22" src="https://github.com/user-attachments/assets/8848217a-c306-41d0-8431-ceab5aa02298" /># Guess the Flag
+# Guess the Flag
 
 This is a guessing game that helps users learn some of the many flags of the world. This app explores using stacks to arrange views, Colors, frames, gradients, showing alerts and designing beautiful UI in SwiftUI.
 
